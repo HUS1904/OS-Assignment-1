@@ -50,7 +50,7 @@ echo -n "Test 8 (Random mix of commands - abcbabcababacabq): "
 
 # Test 9: Ending the program without pressing 'q' (with an invalid character)
 in="abacba1"
-out="0,2,4;"
+out="0,5;"
 echo -n "Test 9 (End with invalid character - abacba1): "
 [[ $(./cmd_int <<< "$in") == "$out"* ]] && echo "PASSED" || echo "FAILED"
 

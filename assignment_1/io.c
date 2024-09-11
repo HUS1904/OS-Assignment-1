@@ -32,13 +32,10 @@ int write_string(char* s) {
  */
 int write_int(int n) {
     int i = 0;
-    int isNegative = 0;
     char buffer[12];
 
-    if(n < 0){
-        isNegative = 1;
-        n = -n;
-    }
+    int isNegative = n < 0;
+    n = isNegative ? -n : n;
 
     do {
         buffer[i++] = (n % 10) + '0';
@@ -55,5 +52,5 @@ int write_int(int n) {
         buffer[i - j - 1] = temp;
     }
 
-    return (write_string(buffer) == 0) ? 0 : EOF;
+    return write_string(buffer) == 0 ? 0 : EOF;
 }
